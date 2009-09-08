@@ -1,0 +1,9 @@
+Perl IRC bot
+
+ * Require
+   * Net::IRC
+   * DBI
+   * DBD::SQLite
+   * YAML;
+   * LWP::UserAgent
+

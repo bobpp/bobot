@@ -1,0 +1,6 @@
+server: irc.tokyo.wide.ad.jp
+nick: bobot
+port: 6667
+channels:
+ - #bobot
+

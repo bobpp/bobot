@@ -4,6 +4,6 @@ Perl IRC bot
    * Net::IRC
    * DBI
    * DBD::SQLite
-   * YAML;
+   * YAML
    * LWP::UserAgent
 

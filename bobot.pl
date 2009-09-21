@@ -28,6 +28,7 @@ my $conn = $i->newconn(
 	Port     => $config->{port},
 	Ircname  => $config->{nick},
 	Username => $config->{nick},
+	Password => $config->{password},
 );
 
 my $dbh = DBI->connect("dbi:SQLite:dbname=bobot.sqlite3", "", "", {AutoCommit => 1});

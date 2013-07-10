@@ -103,7 +103,8 @@ $conn->add_handler('public', sub {
 	my $msg = $e->{args}[0];
 
 	# karma
-	if ($msg =~ /(\w+)(\+\+|\-\-)/) {
+	# [!-~] == symbol + \w
+	if ($msg =~ /([!-~]+)(\+\+|\-\-)/) {
 		$karma_exists_sth->execute($channel, $1);
 		unless (my ($id) = $karma_exists_sth->fetchrow_array) {
 			$karma_initialize_sth->execute($channel, $1);
@@ -116,12 +117,12 @@ $conn->add_handler('public', sub {
 	}
 
 	# karma check
-	if ($msg =~ /^vote (\w+)$/) {
+	if ($msg =~ /^vote ([!-~]+)$/) {
 		show_karma($self, $channel, $1);
 	}
 
 	# msg
-	if ($msg =~ /^msg (\w+) (.*)$/) {
+	if ($msg =~ /^msg ([!-~]+) (.*)$/) {
 		$set_msg_sth->execute($channel, $e->{nick}, $1, $2);
 		$self->notice($channel, "Message set OK");
 	}
